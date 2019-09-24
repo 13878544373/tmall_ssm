@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Category">
+<!-- 添加操作  -->
+	<insert id="add" parameterType="Category">
+		insert into Category(name) values(#{name})
+	</insert>
+	<!-- 删除操作  -->
+	<delete id="deleteById">
+		delete from Category where id = #{id}
+	</delete>
+	<!-- 查找操作 -->
+	<select id="queryById" resultType="Category">
+		select * from Category where id = #{id}
+	</select>
+	<!-- 更新操作  -->
+	<update id="update" parameterType="Category">
+		update Category 
+		<trim prefix="set" suffixOverrides=",">
+			<if test="name!=null and name!=''">
+				name = #{name},
+			</if>
+		</trim>
+		where id = #{id}
+		<!-- update user set name = #{name},password = #{password} where id = #{id} -->
+	</update>
+	<!-- 分页操作  -->
+	<select id="queryByPage" parameterType="map" resultType="Category">
+		select * from category order by id limit #{start},#{pageSize}
+	</select>
+	<!-- 查询总记录数  -->
+	<select id="getTotals" resultType="int">
+		select count(*) from category
+	</select>
+</mapper>
