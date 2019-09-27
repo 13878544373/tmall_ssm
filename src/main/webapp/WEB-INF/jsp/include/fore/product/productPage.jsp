@@ -7,7 +7,7 @@
 
 <title>模仿天猫官网 ${p.name}</title>
 <div class="categoryPictureInProductPageDiv">
-	<img class="categoryPictureInProductPage" src="img/category/${p.category.id}.jpg">
+	<img class="categoryPictureInProductPage" src="img/category/${ca.id}.jpg">
 </div>
 
 <div class="productPageDiv">

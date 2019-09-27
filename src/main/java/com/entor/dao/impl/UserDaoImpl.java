@@ -1,6 +1,7 @@
 package com.entor.dao.impl;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
@@ -18,5 +19,13 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao{
 		map.put("name", name);
 		map.put("password", password);
 		return getSqlSession().selectOne(namespace+".login", map);
+	}
+	@Override
+	public List<User> queryAll() {
+		return getSqlSession().selectList(namespace+".queryAll");
+	}
+	@Override
+	public User register(String name) {
+		return getSqlSession().selectOne(namespace+".register", name);
 	}
 }

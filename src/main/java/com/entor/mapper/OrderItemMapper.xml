@@ -2,5 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="OrderItem">
-
+	
+	<select id="queryAll" resultType="Ordergl">
+		select u.name uname,o.*,p.name pname,p.promotePrice,oi.number,p.id pid from
+ 		orderitem oi,product p,order_ o,user u where p.id=oi.pid and oi.oid=o.id and oi.uid=u.id 
+	</select>
 </mapper>

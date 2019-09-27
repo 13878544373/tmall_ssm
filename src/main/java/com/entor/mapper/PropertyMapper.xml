@@ -12,11 +12,11 @@
 	</delete>
 	<!-- 查找操作 -->
 	<select id="queryById" resultType="Property">
-	SELECT p.id,p.name from category c,property p where p.cid=c.id and c.id=#{id}
+	SELECT * from property where id=#{id}
 	</select>
 	<!-- cid查找操作 -->
 	<select id="queryByCid" resultType="Property">
-	SELECT p.id,p.name from category c,property p where p.cid=c.id and c.id=#{id}
+	SELECT * from property where cid=#{cid}
 	</select>
 	<!-- 根据产品类型Id分页查询产品属性 -->
 	<select id="queryByPage" parameterType="map" resultType="Property">

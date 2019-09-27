@@ -3,4 +3,11 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="PropertyValue">
 
+	<select id="queryPid" resultType="ProValPro">
+		select pt.name,pv.id,pv.value from product p,propertyValue pv,property pt where p.id = pv.pid and pv.ptid = pt.id and p.id =#{pid} order by pv.id	
+	</select>
+	<update id="update" parameterType="map">
+		update PropertyValue set value = #{value} where id = #{ptid}
+	</update>
+	
 </mapper>

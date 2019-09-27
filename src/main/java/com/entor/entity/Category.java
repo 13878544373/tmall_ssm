@@ -1,8 +1,24 @@
 package com.entor.entity;
 
+import java.util.List;
+
 public class Category {
 	private int id;
 	private String name;
+	private List<Product> products;
+	private List<String> productsByRow;
+	public List<String> getProductsByRow() {
+		return productsByRow;
+	}
+	public void setProductsByRow(List<String> productsByRow) {
+		this.productsByRow = productsByRow;
+	}
+	public List<Product> getProducts() {
+		return products;
+	}
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
 	public int getId() {
 		return id;
 	}
@@ -17,6 +33,7 @@ public class Category {
 	}
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", name=" + name + "]";
+		return "Category [id=" + id + ", name=" + name + ", products=" + products + "]";
 	}
+	
 }

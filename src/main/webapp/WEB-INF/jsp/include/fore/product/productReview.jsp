@@ -9,7 +9,7 @@
 <div class="productReviewDiv" >
 	<div class="productReviewTopPart">
 		<a  href="#nowhere" class="productReviewTopPartSelectedLink">商品详情</a>
-		<a  href="#nowhere" class="selected">累计评价 <span class="productReviewTopReviewLinkNumber">${p.reviewCount}</span> </a>
+		<a  href="#nowhere" class="selected">累计评价 <span class="productReviewTopReviewLinkNumber">0</span> </a>
 	</div>
 	
 		

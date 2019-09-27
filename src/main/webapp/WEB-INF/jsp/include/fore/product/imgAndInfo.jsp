@@ -142,7 +142,7 @@ $(function(){
 <div class="imgAndInfo">
  
     <div class="imgInimgAndInfo">
-        <img src="img/productSingle/${p.firstProductImage.id}.jpg" class="bigImg">
+        <img src="img/productSingle/${p.piId}.jpg" class="bigImg">
         <div class="smallImageDiv">
             <c:forEach items="${p.productSingleImages}" var="pi">
                 <img src="img/productSingle_small/${pi.id}.jpg" bigImageURL="img/productSingle/${pi.id}.jpg" class="smallImage">
@@ -158,7 +158,7 @@ $(function(){
             ${p.name}
         </div>
         <div class="productSubTitle">
-            ${p.subTitle} 
+            ${p.subtitle} 
         </div>
 
 
@@ -180,7 +180,7 @@ $(function(){
                     <span class="originalPriceDesc">价格</span>
                     <span class="originalPriceYuan">¥</span>
                     <span class="originalPrice">
-                        <fmt:formatNumber type="number" value="${p.originalPrice}" minFractionDigits="2"/>
+                        <fmt:formatNumber type="number" value="${p.orignalprice}" minFractionDigits="2"/>
                     </span>
                 </div>
 
@@ -188,15 +188,15 @@ $(function(){
                     <span class="promotionPriceDesc">促销价 </span>
                     <span class="promotionPriceYuan">¥</span>
                     <span class="promotionPrice">
-                        <fmt:formatNumber type="number" value="${p.promotePrice}" minFractionDigits="2"/>
+                        <fmt:formatNumber type="number" value="${p.promoteprice}" minFractionDigits="2"/>
                     </span>
                 </div>
             </div>
         </div>
 
         <div class="productSaleAndReviewNumber">
-            <div>销量 <span class="redColor boldWord"> ${p.saleCount }</span></div>   
-            <div>累计评价 <span class="redColor boldWord"> ${p.reviewCount}</span></div>    
+            <div>销量 <span class="redColor boldWord"> 1</span></div>   
+            <div>累计评价 <span class="redColor boldWord"> 0</span></div>    
         </div>
         <div class="productNumber">
             <span>数量</span>

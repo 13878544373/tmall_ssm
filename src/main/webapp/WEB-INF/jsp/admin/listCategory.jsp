@@ -52,8 +52,8 @@
                     <td>${c.name}</td>
 
                     <td><a href="${pageContext.request.contextPath}/admin_property_list?cid=${c.id}"><span class="glyphicon glyphicon-th-list"></span></a></td>
-                    <td><a href="${pageContext.request.contextPath}/admin_product_list?cid=${c.id}"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
-                    <td><a href="${pageContext.request.contextPath}/admin_category_edit?id=${c.id}"><span class="glyphicon glyphicon-edit"></span></a></td>
+                    <td><a href="${pageContext.request.contextPath}/admin_product_list/1?cid=${c.id}"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
+                    <td><a href="${pageContext.request.contextPath}/admin_category_edit?id=${c.id}&currentPage=${sp}&name=${c.name}"><span class="glyphicon glyphicon-edit"></span></a></td>
                     <td><a href="javascript:void(0);" onclick="deleteById(${sp},${c.id });"><span class="   glyphicon glyphicon-trash"></span></a></td>
 
                 </tr>
@@ -69,7 +69,7 @@
     <div class="panel panel-warning addDiv">
         <div class="panel-heading">新增分类</div>
         <div class="panel-body">
-            <form method="post" id="addForm" action="admin_category_add" enctype="multipart/form-data">
+            <form method="post" id="addForm" action="${pageContext.request.contextPath}/admin_category_add?currentPage=${sp}" enctype="multipart/form-data">
                 <table class="addTable">
                     <tr>
                         <td>分类名称</td>
@@ -78,7 +78,7 @@
                     <tr>
                         <td>分类圖片</td>
                         <td>
-                            <input id="categoryPic" accept="image/*" type="file" name="image" />
+                            <input  type="file" name="file" />
                         </td>
                     </tr>
                     <tr class="submitTR">

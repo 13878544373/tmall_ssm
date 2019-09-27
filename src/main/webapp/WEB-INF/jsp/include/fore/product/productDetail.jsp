@@ -11,7 +11,7 @@
 <div class="productDetailDiv" >
 	<div class="productDetailTopPart">
 		<a href="#nowhere" class="productDetailTopPartSelectedLink selected">商品详情</a>
-		<a href="#nowhere" class="productDetailTopReviewLink">累计评价 <span class="productDetailTopReviewLinkNumber">${p.reviewCount}</span> </a>
+		<a href="#nowhere" class="productDetailTopReviewLink">累计评价 <span class="productDetailTopReviewLinkNumber">0</span> </a>
 	</div>
 	
 	
@@ -20,7 +20,7 @@
 		
 		<div class="productParamterList">
 			<c:forEach items="${pvs}" var="pv">
-				<span>${pv.property.name}:  ${fn:substring(pv.value, 0, 10)} </span>
+				<span>${pv.name}:  ${fn:substring(pv.value, 0, 10)} </span>
 			</c:forEach>
 		</div>
 		<div style="clear:both"></div>

@@ -9,7 +9,7 @@ public interface BaseService<T> {
 	 * 新增
 	 * @param t
 	 */
-	public void add(T t);
+	public int add(T t);
 	/**
 	 * 修改
 	 * @param t

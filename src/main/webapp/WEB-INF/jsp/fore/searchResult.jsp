@@ -9,4 +9,4 @@
 <%@include file="../include/fore/top.jsp"%>
 <%@include file="../include/fore/search.jsp"%>
 <%@include file="../include/fore/searchResultPage.jsp"%>
-<%@include file="../include/fore/footer.jsp"%>
+<%@include file="../include/fore/footer.jsp"%> 

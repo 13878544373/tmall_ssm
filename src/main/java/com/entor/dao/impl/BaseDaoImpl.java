@@ -22,8 +22,8 @@ public class BaseDaoImpl<T> extends SqlSessionDaoSupport implements BaseDao<T>{
 	}
 
 	@Override
-	public void add(T t) {
-		getSqlSession().insert(t.getClass().getSimpleName()+".add", t);
+	public int add(T t) {
+		return getSqlSession().insert(t.getClass().getSimpleName()+".add", t);
 	}
 
 	@Override

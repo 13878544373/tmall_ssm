@@ -12,8 +12,8 @@ import com.entor.dao.PropertyDao;
 import com.entor.entity.Property;
 import com.entor.service.PropertyService;
 @Service("propertyService")
-
 public class PropertyServiceImpl extends BaseServiceImpl<Property> implements PropertyService{
+	
 	@Resource
 	private PropertyDao propertyDao;
 	@Override

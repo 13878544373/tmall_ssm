@@ -1,5 +1,7 @@
 package com.entor.dao;
 
+import java.util.List;
+
 import com.entor.entity.User;
 
 public interface UserDao extends BaseDao<User>{
@@ -11,4 +13,6 @@ public interface UserDao extends BaseDao<User>{
 	 * @return
 	 */
 	public User login(String username,String password);
+	public List<User> queryAll();
+	User register(String name);
 }

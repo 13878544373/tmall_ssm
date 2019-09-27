@@ -26,7 +26,7 @@
 <div class="workingArea">
 
 	<ol class="breadcrumb">
-		<li><a href="admin_category_list/1">所有分类</a></li>
+		<li><a href="${pageContext.request.contextPath}/admin_category_list/1">所有分类</a></li>
 		<li><a href="admin_property_list?cid=${c.id}">${c.name}</a></li>
 		<li class="active">属性管理</li>
 	</ol>
@@ -53,8 +53,8 @@
 					<td><a href="${pageContext.request.contextPath}/admin_property_edit?id=${p.id}"><span
 							class="glyphicon glyphicon-edit"></span></a></td>
 					<td><a deleteLink="true"
-						   href="admin_property_delete?id=${p.id}"><span
-							class=" 	glyphicon glyphicon-trash"></span></a></td>
+						   href="${pageContext.request.contextPath}/admin_property_delete?id=${p.id}&cid=${c.id}"><span
+							class="glyphicon glyphicon-trash"></span></a></td>
 
 				</tr>
 			</c:forEach>
@@ -63,7 +63,12 @@
 	</div>
 
 	<div class="pageDiv">
-		<%@include file="../include/admin/adminPage.jsp"%>
+		<ul class="pagination pagination-sm">
+		<li><a href="${pageContext.request.contextPath}/admin_property_list?cid=${cid}" aria-label="Previous"> <span aria-hidden="true">&laquo;</span></a></li>
+		<li><a href="${pageContext.request.contextPath}/admin_property_list?cid=${cid}">上一页</a>&nbsp;&nbsp;</li>
+		<li><a href="${pageContext.request.contextPath}/admin_property_list?cid=${cid}">下一页</a>&nbsp;&nbsp;</li>
+		<li><a href="${pageContext.request.contextPath}/admin_property_list?cid=${cid}" aria-label="Next">&raquo;</a></li>
+	</ul>
 	</div>
 
 	<div class="panel panel-warning addDiv">

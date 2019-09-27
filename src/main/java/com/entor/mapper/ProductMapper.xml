@@ -2,5 +2,73 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Product">
-
+	<!-- 增加类别 -->
+	<insert id="add" parameterType="Product">
+		insert into Product(name,subTitle,orignalPrice,promotePrice,stock,cid,createDate) values(#{name},#{subtitle},#{orignalprice},#{promoteprice},#{stock},#{cid},now())
+		<selectKey resultType="int" keyProperty="id" order="AFTER">
+			select last_insert_id() as id
+		</selectKey>
+	</insert>
+	<!-- 删除类别 -->
+	<delete id="deleteById">
+		delete from Product where id=#{id}
+	</delete>
+	<!-- 修改类别 -->
+	<update id="update" parameterType="Product">
+		update Product 
+		<trim prefix="set" suffixOverrides=",">
+			<if test="name!=null and name!=''">
+				name = #{name},
+			</if>
+			<if test="subtitle!=null and subtitle!=''">
+				subTitle = #{subtitle},
+			</if>
+			<if test="orignalprice!=null and orignalprice!=''">
+				orignalPrice = #{orignalprice},
+			</if>
+			<if test="promoteprice!=null and promoteprice!=''">
+				promotePrice = #{promoteprice},
+			</if>
+			<if test="stock!=null and stock!=''">
+				stock = #{stock},
+			</if>
+			<if test="cid!=null and cid!=''">
+				cid = #{cid},
+			</if>
+			<if test="createDate!=null and createDate!=''">
+				createDate = #{createDate},
+			</if>
+		</trim>
+		where id = #{id}
+	</update>
+	<!-- 查询总记录数 -->
+	<select id="getTotals" resultType="int">
+		select count(*) from Product
+	</select>
+	<!-- 分页查询 -->
+	<select id="queryByPage" parameterType="map" resultType="Product">
+		select * from Product order by id limit #{start},#{size} 
+	</select>
+	<!-- 根据cid分页查询 -->
+	<select id="queryByCidPage" parameterType="map" resultType="Product">
+		select * from Product WHERE cid=#{cid} order by id limit #{start},#{pageSize} 
+	</select>
+	
+	<!-- 全查询 -->
+	<select id="queryAll" resultType="Product">
+		select * from Product
+	</select>
+	<!-- id查询 -->
+	<select id="queryById" resultType="Product">
+		select * from Product where id=#{id}
+	</select>
+	<!-- 根据产品类别查产品数量 -->
+	<select id="cidByTotals" resultType="int">
+		select count(*) from Product where cid = #{cid}
+	</select>
+	<!-- 关键字查询 -->
+	<select id="vagueQuery" resultType="Product">
+		SELECT * FROM product WHERE CONCAT(name, subTitle) LIKE "%"#{vague}"%"
+	</select>
+	
 </mapper>

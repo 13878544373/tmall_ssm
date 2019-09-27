@@ -36,8 +36,8 @@
 
 <div class="workingArea">
 	<ol class="breadcrumb">
-		<li><a href="admin_category_list">所有分类</a></li>
-		<li><a href="admin_product_list?cid=${p.category.id}">${p.category.name}</a></li>
+		<li><a href="${pageContext.request.contextPath}/admin_category_list/1">所有分类</a></li>
+		<li><a href="${pageContext.request.contextPath}/admin_product_list/1?cid=${c.id}">${c.name}</a></li>
 		<li class="active">${p.name}</li>
 		<li class="active">编辑产品属性</li>
 	</ol>
@@ -45,7 +45,7 @@
 	<div class="editPVDiv">
 		<c:forEach items="${pvs}" var="pv">
 			<div class="eachPV">
-				<span class="pvName" >${pv.property.name}</span>
+				<span class="pvName" >${pv.name}</span>
 				<span class="pvValue"><input class="pvValue" pvid="${pv.id}" type="text" value="${pv.value}"></span>
 			</div>
 		</c:forEach>

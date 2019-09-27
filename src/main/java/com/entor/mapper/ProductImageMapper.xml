@@ -2,5 +2,39 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ProductImage">
-
+	<!-- 增加类别 -->
+	<insert id="add" parameterType="ProductImage">
+		insert into ProductImage(pid,type) values(#{pid},#{type})
+	</insert>
+	<!-- 删除类别 -->
+	<delete id="deleteById">
+		delete from ProductImage where id=#{id}
+	</delete>
+	<!-- 修改类别 -->
+	<update id="update" parameterType="ProductImage">
+		update ProductImage set name=#{name},type=#{type} where id = #{id}
+	</update>
+	<!-- 查询总记录数 -->
+	<select id="getTotals" resultType="int">
+		select count(*) from ProductImage
+	</select>
+	<!-- 分页查询 -->
+	<select id="queryByPage" parameterType="map" resultType="ProductImage">
+		select * from ProductImage order by id limit #{start},#{size}
+	</select>
+	<!-- 全查询 -->
+	<select id="queryAll" resultType="ProductImage">
+		select * from ProductImage
+	</select>
+	<!-- id查询 -->
+	<select id="queryById" resultType="ProductImage">
+		select * from ProductImage where id=#{id}
+	</select>
+	<!-- pid查找操作 -->
+	<select id="queryByPid" resultType="int" parameterType="int">
+	SELECT min(id) from ProductImage pi where pid = #{pid}
+	</select>
+	<select id="queryByPidAll" resultType="ProductImage" parameterType="int">
+	SELECT * from ProductImage where pid = #{pid}
+	</select>
 </mapper>

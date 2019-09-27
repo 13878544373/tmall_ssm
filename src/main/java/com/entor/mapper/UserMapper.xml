@@ -32,6 +32,11 @@
 	<select id="login" parameterType="map" resultType="User">
 		select * from user where name = #{name} and password = #{password}
 	</select>
+	<!-- 注册检测 -->
+	<select id="register" resultType="User">
+		select * from User where name=#{name}
+	</select>
+	
 	<!-- 查询所有操作  -->
 	<select id="queryAll" resultType="User">
 		select * from user order by id

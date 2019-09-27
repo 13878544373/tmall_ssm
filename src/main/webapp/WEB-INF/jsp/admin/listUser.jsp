@@ -41,7 +41,12 @@
 	</div>
 
 	<div class="pageDiv">
-		<%@include file="../include/admin/adminPage.jsp" %>
+		<ul class="pagination pagination-sm">
+		<li><a href="${pageContext.request.contextPath}/admin_user_list" aria-label="Previous"> <span aria-hidden="true">&laquo;</span></a></li>
+		<li><a href="${pageContext.request.contextPath}/admin_user_list">上一页</a>&nbsp;&nbsp;</li>
+		<li><a href="${pageContext.request.contextPath}/admin_user_list">下一页</a>&nbsp;&nbsp;</li>
+		<li><a href="${pageContext.request.contextPath}/admin_user_list" aria-label="Next">&raquo;</a></li>
+	</ul>
 	</div>
 
 

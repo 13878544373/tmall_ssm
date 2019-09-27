@@ -18,8 +18,8 @@ public class BaseServiceImpl<T> implements BaseService<T>{
 	@Resource
 	private BaseDao<T> baseDao;
 	@Override
-	public void add(T t) {
-		baseDao.add(t);
+	public int add(T t) {
+		return baseDao.add(t);
 	}
 
 	@Override

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -28,16 +29,42 @@ public class PropertyController {
 		Category category = cs.queryById(Category.class, cid);
 		map.put("ps", list);
 		map.put("c", category);
-		System.out.println(list);
-		System.out.println(category);
+		map.put("cid", cid);
 		return "admin/listProperty";
 	}
 	
-	@RequestMapping("/admin_property_edit/{id}")
-	public String update(int id,HttpSession sess) {
+	@RequestMapping("/admin_property_edit")
+	public String edit(int id,HttpServletRequest req) {
 		//获取属性对象
 		Property p = ps.queryById(Property.class, id);
-		sess.setAttribute("p", p);
+		Category c = cs.queryById(Category.class, p.getCid());
+		System.out.println(p);
+		req.setAttribute("p", p);
+		req.setAttribute("c", c);
 		return "admin/editProperty";
 	}
+	
+	@RequestMapping("/admin_property_update")
+	public String update(String name,int id,int cid) {
+		Property p = new Property();
+		p.setCid(cid);
+		p.setId(id);
+		p.setName(name);
+		ps.update(p);
+		return "forward:/admin_property_list";
 	}
+	
+	@RequestMapping("/admin_property_delete")
+	public String delete(int id,int cid) {
+		ps.deleteById(Property.class, id);
+		
+		return "forward:/admin_property_list";
+	}
+	
+	@RequestMapping("/admin_property_add")
+	public String add(Property p,int cid) {
+		System.out.println(p);
+		ps.add(p);
+		return "forward:/admin_property_list";
+	}
+}

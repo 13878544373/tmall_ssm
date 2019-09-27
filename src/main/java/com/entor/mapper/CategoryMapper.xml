@@ -5,6 +5,9 @@
 <!-- 添加操作  -->
 	<insert id="add" parameterType="Category">
 		insert into Category(name) values(#{name})
+		<selectKey resultType="int" keyProperty="id" order="AFTER">
+			select last_insert_id() as id
+		</selectKey>
 	</insert>
 	<!-- 删除操作  -->
 	<delete id="deleteById">
@@ -16,13 +19,7 @@
 	</select>
 	<!-- 更新操作  -->
 	<update id="update" parameterType="Category">
-		update Category 
-		<trim prefix="set" suffixOverrides=",">
-			<if test="name!=null and name!=''">
-				name = #{name},
-			</if>
-		</trim>
-		where id = #{id}
+		update Category set name = #{name} where id = #{id}
 		<!-- update user set name = #{name},password = #{password} where id = #{id} -->
 	</update>
 	<!-- 分页操作  -->
@@ -32,5 +29,8 @@
 	<!-- 查询总记录数  -->
 	<select id="getTotals" resultType="int">
 		select count(*) from category
+	</select>
+	<select id="queryAll" resultType="Category">
+		select * from category
 	</select>
 </mapper>

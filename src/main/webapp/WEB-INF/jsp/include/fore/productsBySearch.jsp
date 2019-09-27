@@ -11,11 +11,11 @@
 <div class="searchProducts">
 
 	<c:forEach items="${ps}" var="p">
-	<div class="productUnit" price="${p.promotePrice}">
+	<div class="productUnit" price="${p.promoteprice}">
 		<a href="foreproduct?pid=${p.id}">
-			<img class="productImage" src="img/productSingle/${p.firstProductImage.id}.jpg">
+			<img class="productImage" src="img/productSingle/${p.piId}.jpg">
 		</a>
-		<span class="productPrice">¥<fmt:formatNumber type="number" value="${p.promotePrice}" minFractionDigits="2"/></span>
+		<span class="productPrice">¥<fmt:formatNumber type="number" value="${p.promoteprice}" minFractionDigits="2"/></span>
 		<a class="productLink" href="foreproduct?pid=${p.id}">
 				${fn:substring(p.name, 0, 50)}
 		</a>
@@ -23,8 +23,8 @@
 		<a class="tmallLink" href="foreproduct?pid=${p.id}">天猫专卖</a>
 
 		<div class="show1 productInfo">
-			<span class="monthDeal ">月成交 <span class="productDealNumber">${p.saleCount}笔</span></span>
-			<span class="productReview">评价<span class="productReviewNumber">${p.reviewCount}</span></span>
+			<span class="monthDeal ">月成交 <span class="productDealNumber">0笔</span></span>
+			<span class="productReview">评价<span class="productReviewNumber">0</span></span>
 			<span class="wangwang"><img src="img/site/wangwang.png"></span>
 		</div>
 
